@@ -10,13 +10,11 @@ const Greeting = () => {
     axios.get('http://localhost:3000/greetings/message')
       .then((response) => {
         const greeting = response.data;
-        console.log(greeting);
         dispatch(setGreeting({ payload: greeting }));
       })
       .catch(() => {});
   }, [dispatch]);
   const greeting = useSelector((state) => state.greeting.value.payload);
-  console.log(greeting);
   return (
     <h1>{ greeting }</h1>
   );
